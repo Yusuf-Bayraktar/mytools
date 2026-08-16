@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sıcaklık değerlerini farklı termometre ölçekleri arasında dönüştürün.">
+  <title>Termometre Dönüşümü | Hesaplama Araçları</title>
+  <link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+  <div data-site-header></div>
+
+  <main class="container narrow-container">
+    <section class="page-heading">
+      <p class="eyebrow">Dönüştürücü</p>
+      <h1>Termometre dönüşümü</h1>
+      <p>Bir sıcaklık ölçeğindeki değeri başka bir ölçeğe dönüştürün.</p>
+    </section>
+
+    <section class="card" aria-labelledby="converter-title">
+      <h2 id="converter-title">Değer dönüştür</h2>
+      <form id="temperature-form" novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label for="temperature-value">Sıcaklık değeri</label>
+            <input id="temperature-value" name="value" type="number" step="any" inputmode="decimal" value="0" required>
+          </div>
+          <div class="field">
+            <label for="source-scale">Kaynak ölçek</label>
+            <select id="source-scale" name="source" required></select>
+          </div>
+          <div class="field">
+            <label for="target-scale">Hedef ölçek</label>
+            <select id="target-scale" name="target" required></select>
+          </div>
+        </div>
+        <p id="temperature-error" class="form-message form-message--error" role="alert" hidden></p>
+        <button class="button" type="submit">Hesapla</button>
+      </form>
+
+      <div class="result" aria-live="polite">
+        <span class="result__label">Sonuç</span>
+        <output id="temperature-result" class="result__value" for="temperature-form">—</output>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="custom-scale-title">
+      <h2 id="custom-scale-title">Özel termometre ekle</h2>
+      <p class="muted">Eklediğiniz ölçek yalnızca bu tarayıcıda saklanır.</p>
+      <form id="custom-scale-form" novalidate>
+        <div class="form-grid form-grid--three">
+          <div class="field">
+            <label for="custom-name">Ölçek adı</label>
+            <input id="custom-name" name="name" type="text" maxlength="40" required>
+          </div>
+          <div class="field">
+            <label for="custom-freezing">Donma noktası</label>
+            <input id="custom-freezing" name="freezing" type="number" step="any" inputmode="decimal" required>
+          </div>
+          <div class="field">
+            <label for="custom-boiling">Kaynama noktası</label>
+            <input id="custom-boiling" name="boiling" type="number" step="any" inputmode="decimal" required>
+          </div>
+        </div>
+        <p id="custom-scale-error" class="form-message form-message--error" role="alert" hidden></p>
+        <p id="custom-scale-success" class="form-message form-message--success" role="status" hidden></p>
+        <button class="button button--secondary" type="submit">Ölçek ekle</button>
+      </form>
+    </section>
+
+    <section class="card" aria-labelledby="thermometer-management-title">
+      <h2 id="thermometer-management-title">Termometreleri düzenle</h2>
+      <p class="muted">Ölçek adını veya donma/kaynama noktalarını değiştirebilir, ölçek silebilirsiniz.</p>
+      <div id="thermometer-management" class="management-list"></div>
+    </section>
+  </main>
+
+  <div data-site-footer></div>
+  <script src="../assets/js/common.js" defer></script>
+  <script src="../assets/js/temperature.js" defer></script>
+</body>
+</html>

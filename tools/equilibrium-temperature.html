@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Farklı maddelerin denge sıcaklığını hesaplayın.">
+  <title>Denge Sıcaklığı | Hesaplama Araçları</title>
+  <link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+  <div data-site-header></div>
+  <main class="container narrow-container">
+    <section class="page-heading">
+      <p class="eyebrow">Fizik</p>
+      <h1>Denge sıcaklığı</h1>
+      <p>Farklı maddelerin ısı alışverişi sonucundaki sıcaklığı hesaplayın.</p>
+    </section>
+
+    <section class="card" aria-labelledby="equilibrium-title">
+      <div class="section-heading"><div><h2 id="equilibrium-title">Maddeleri girin</h2><p class="muted">Kütle gram, sıcaklık Celsius cinsindendir.</p></div><button class="button button--secondary" id="add-material" type="button">Madde ekle</button></div>
+      <form id="equilibrium-form" novalidate>
+        <div id="material-rows" class="rows"></div>
+        <p id="equilibrium-error" class="form-message form-message--error" role="alert" hidden></p>
+        <button class="button" type="submit">Hesapla</button>
+      </form>
+      <div class="result" aria-live="polite"><span class="result__label">Denge sıcaklığı</span><output id="equilibrium-result" class="result__value">—</output></div>
+    </section>
+
+    <section class="card" aria-labelledby="material-title">
+      <h2 id="material-title">Madde ekle</h2>
+      <p class="muted">Eklediğiniz maddeler yalnızca bu tarayıcıda saklanır.</p>
+      <form id="custom-material-form" novalidate>
+        <div class="form-grid form-grid--three">
+          <div class="field"><label for="material-name">Madde adı</label><input id="material-name" type="text" maxlength="50" required></div>
+          <div class="field"><label for="material-heat">Öz ısı</label><input id="material-heat" type="number" min="0.000001" step="any" inputmode="decimal" required></div>
+        </div>
+        <p id="material-error" class="form-message form-message--error" role="alert" hidden></p>
+        <p id="material-success" class="form-message form-message--success" role="status" hidden></p>
+        <button class="button button--secondary" type="submit">Madde kaydet</button>
+      </form>
+    </section>
+
+    <section class="card" aria-labelledby="material-management-title">
+      <h2 id="material-management-title">Maddeleri düzenle</h2>
+      <p class="muted">Madde adını veya öz ısı değerini değiştirebilir, artık kullanmadığınız maddeleri silebilirsiniz.</p>
+      <div id="material-management" class="management-list"></div>
+    </section>
+  </main>
+  <div data-site-footer></div>
+  <script src="../assets/js/common.js" defer></script>
+  <script src="../assets/js/equilibrium-temperature.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ders saatlerini dikkate alarak ağırlıklı not ortalaması hesaplayın.">
+  <title>Ağırlıklı Not Ortalaması | Hesaplama Araçları</title>
+  <link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+  <div data-site-header></div>
+  <main class="container narrow-container">
+    <section class="page-heading">
+      <p class="eyebrow">Eğitim</p>
+      <h1>Ağırlıklı not ortalaması</h1>
+      <p>Not ve sözlü ortalamasını ders saatlerine göre ağırlıklandırın.</p>
+    </section>
+
+    <section class="card" aria-labelledby="grade-title">
+      <div class="section-heading"><div><h2 id="grade-title">Dersleri girin</h2><p class="muted">Notlar 0–100 aralığında olmalıdır.</p></div><button class="button button--secondary" id="add-course" type="button">Ders ekle</button></div>
+      <form id="grade-form" novalidate>
+        <div id="course-rows" class="rows"></div>
+        <p id="grade-error" class="form-message form-message--error" role="alert" hidden></p>
+        <button class="button" type="submit">Hesapla</button>
+      </form>
+      <div class="result" aria-live="polite"><span class="result__label">Ağırlıklı ortalama</span><output id="grade-result" class="result__value">—</output></div>
+    </section>
+
+    <section class="card" aria-labelledby="course-title">
+      <h2 id="course-title">Ders ekle</h2>
+      <p class="muted">Eklediğiniz dersler yalnızca bu tarayıcıda saklanır.</p>
+      <form id="custom-course-form" novalidate>
+        <div class="form-grid form-grid--three">
+          <div class="field"><label for="course-name">Ders adı</label><input id="course-name" type="text" maxlength="50" required></div>
+          <div class="field"><label for="course-hours">Ders saati</label><input id="course-hours" type="number" min="0.000001" step="any" inputmode="decimal" required></div>
+        </div>
+        <p id="course-error" class="form-message form-message--error" role="alert" hidden></p>
+        <p id="course-success" class="form-message form-message--success" role="status" hidden></p>
+        <button class="button button--secondary" type="submit">Ders kaydet</button>
+      </form>
+    </section>
+
+    <section class="card" aria-labelledby="course-management-title">
+      <h2 id="course-management-title">Dersleri düzenle</h2>
+      <p class="muted">Ders adını veya saatini değiştirebilir, artık kullanmadığınız dersleri silebilirsiniz.</p>
+      <div id="course-management" class="management-list"></div>
+    </section>
+  </main>
+  <div data-site-footer></div>
+  <script src="../assets/js/common.js" defer></script>
+  <script src="../assets/js/grade-average.js" defer></script>
+</body>
+</html>
